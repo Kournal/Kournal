@@ -22,7 +22,7 @@ set (CMAKE_INCLUDE_CURRENT_DIR ON)
 # Instruct CMake to run moc automatically when needed.
 set (CMAKE_AUTOMOC ON)
 # Automatically generate UI headers
-#set (CMAKE_AUTOUIC ON)
+set (CMAKE_AUTOUIC ON)
 # Automatically process resource files
 set (CMAKE_AUTORCC ON)
 
@@ -56,10 +56,7 @@ include (GitRepo)
 
 ## Sources ##
 
-add_subdirectory(ui)
-qt5_wrap_ui (kournal_UISOURCES ${kournal_UIFILES})
-
-add_subdirectory(src/model/formats/kbj)
+add_subdirectory(src/model)
 capnp_generate_cpp(kournal_CAPNP_SOURCES kournal_CAPNP_HEADERS ${kournal_CAPNPFILES})
 
 add_subdirectory(src)

@@ -8,7 +8,7 @@ set (kournal_SOURCES ${kournal_SOURCES} PARENT_SCOPE)
 ## Config files ##
 
 # Main configuration file
-configure_file ("config.h.in" "config.h" @ONLY)
+configure_file ("config.hpp.in" "config.hpp" @ONLY)
 
 
 ## Additional options ##

@@ -1,0 +1,71 @@
+/*
+ * config.hpp – main configuration
+ *
+ * Copyright (C) 2015  Kournal team
+ * This file is part of Kournal.
+ *
+ * Kournal is free software: you can redistribute it and/or modify  it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation, either version 2 of the License, or (at your option) any later version.
+ *
+ * Foobar is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+ * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License along with Kournal.
+ * If not, see <http://www.gnu.org/licenses/>.
+ *
+ * File author:     Marek Pikuła
+ * Creation date:   26.08.2015
+ * Project website: https://github.com/Kournal/Kournal
+ * License:         GPLv2 or later
+ */
+
+// Project constants
+
+/**
+ * Project name
+ */
+#define PROJECT_NAME "@PROJECT_NAME@"
+
+/**
+ * Project version number
+ */
+#define PROJECT_VERSION "@PROJECT_VERSION@"
+
+/**
+ * Project name with version
+ */
+#define PROJECT_STRING "@PROJECT_STRING@"
+
+/**
+ * Project main website
+ */
+#define PROJECT_URL "@PROJECT_URL@"
+
+
+// Git repository info
+
+/**
+ * Origin URL of current git repository
+ */
+#define GIT_ORIGIN_URL "@GIT_ORIGIN_URL@"
+
+/**
+ * Origin repository owner
+ */
+#define GIT_ORIGIN_OWNER "@GIT_ORIGIN_OWNER@"
+
+/**
+ * Origin repository name
+ */
+#define GIT_ORIGIN_REPO "@GIT_ORIGIN_REPO@"
+
+/**
+ * Current git branch
+ */
+#define GIT_BRANCH "@GIT_BRANCH@"
+
+/**
+ * URL to git issue tracker basing on origin remote (if git not found set 
+ * default tracker)
+ */
+#define PROJECT_BUGREPORT "@PROJECT_BUGREPORT@"
