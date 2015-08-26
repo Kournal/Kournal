@@ -147,7 +147,7 @@ struct Journal @0x9707008195388520 {
                     rotate @3 :Float32;                         # Rotation value (see QTransform::rotate)
                     polygonal :union {
                         none @4 :Void;                          # If not used what for waste 16B of memory
-                        polygonal :group {
+                        use :group {
                             point1 @5 :Float32;
                             point2 @6 :Float32;
                             point3 @7 :Float32;
