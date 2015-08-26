@@ -1,2 +1,10 @@
+# CMake
 /build/
+
+# KDevelop4
 /.kdev4/
+*.kdev4
+
+# Qt Creator
+CMakeLists.txt.user
+*.autosave
