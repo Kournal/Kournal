@@ -1,3 +1,4 @@
+#
 # Get basic informations about current git repo (if any)
 #
 # Input variables:
@@ -19,6 +20,7 @@
 #
 # This software is distributed WITHOUT ANY WARRANTY without even the implied warranty of MERCHANTABILITY
 # or FITNESS FOR A PARTICULAR PURPOSE. See the License for more information.
+#
 
 find_program (PATH_GIT git)
 if (EXISTS "${PROJECT_SOURCE_DIR}/.git" AND PATH_GIT)

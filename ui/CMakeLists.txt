@@ -1,0 +1,2 @@
+file (GLOB_RECURSE UIFILES *.ui)
+set (kournal_UIFILES ${UIFILES} PARENT_SCOPE)
