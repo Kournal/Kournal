@@ -5,12 +5,6 @@ file (GLOB_RECURSE kournal_SOURCES *.cpp)
 set (kournal_SOURCES ${kournal_SOURCES} PARENT_SCOPE)
 
 
-## Config files ##
-
-# Main configuration file
-configure_file ("config.hpp.in" "config.hpp" @ONLY)
-
-
 ## Additional options ##
 
 option (CMAKE_LIST_SOURCES "Lists generated sources list" OFF)
@@ -24,3 +18,15 @@ mark_as_advanced (FORCE DEBUG_COMPILE)
 if (DEBUG_COMPILE)
     set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall")
 endif ()
+
+option (DEV_CONFIG_DIR "Local configuration folder" "~/.config/kournal")
+mark_as_advanced (DEV_CONFIG_DIR)
+
+
+## Config files ##
+
+# Main configuration file
+configure_file ("config.hpp.in" "config.hpp" @ONLY)
+
+# Developement configuration file
+configure_file ("config-dev.hpp.in" "config-dev.hpp" @ONLY)

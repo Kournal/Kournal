@@ -16,6 +16,9 @@
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <widget class="QLabel" name="label">
+     <property name="locale">
+      <locale language="English" country="UnitedStates"/>
+     </property>
      <property name="text">
       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:xx-large; font-weight:600;&quot;&gt;Hi!&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Nice to see you there.&lt;/p&gt;&lt;p&gt;If you wish so, you can choose &lt;span style=&quot; font-weight:600;&quot;&gt;New Project&lt;/span&gt;, or you can just &lt;span style=&quot; font-weight:600;&quot;&gt;Open &lt;/span&gt;existing.&lt;/p&gt;&lt;p&gt;As you have probably noticed it's very poor there right now, but fear not – it's gonna be much, much better (just look at this potential in &lt;span style=&quot; font-style:italic;&quot;&gt;capnp&lt;/span&gt; schemas!)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>

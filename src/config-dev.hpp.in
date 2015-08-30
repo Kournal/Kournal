@@ -1,5 +1,5 @@
 /*
- * WelcomeWidget.hpp – welcome screen widget
+ * config-dev.hpp – CMake-generated developement configuration
  *
  * Copyright (C) 2015  Kournal team
  * This file is part of Kournal.
@@ -19,43 +19,7 @@
  * License:         GPLv2 or later
  */
 
-#pragma once
-
-#include "WelcomeWidget.hpp"
-
-#include "model/settings/SettingsHandler.hpp"
-
-#include <QMainWindow>
-
-namespace Ui {
-class KournalWindow;
-}
-
-class KournalWindow : public QMainWindow
-{
-    Q_OBJECT
-
-public:
-    explicit KournalWindow(QWidget *parent = 0);
-    ~KournalWindow();
-
-private slots:
-    void on_fileTabs_tabCloseRequested(int index);
-
-    // Menu actions
-
-    // File
-    void on_actionOpenJournal_triggered();
-
-    // Tools
-    void on_actionOptions_triggered();
-
-    // About
-    void on_actionAboutQt_triggered();
-
-private:
-    Ui::KournalWindow *ui;
-
-    WelcomeWidget *welcome;
-
-};
+/**
+ * Local configuration folder
+ */
+#define DEV_CONFIG_DIR "@DEV_CONFIG_DIR@"

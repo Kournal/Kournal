@@ -1,5 +1,5 @@
 /*
- * main.cpp – main() method file
+ * SettingsDialog.hpp – [file description]
  *
  * Copyright (C) 2015  Kournal team
  * This file is part of Kournal.
@@ -13,24 +13,35 @@
  * You should have received a copy of the GNU General Public License along with Kournal.
  * If not, see <http://www.gnu.org/licenses/>.
  *
- * File author:     Marek Pikuła
- * Creation date:   26.08.2015
+ * File author:     marek
+ * Creation date:   27.8.2015
  * Project website: https://github.com/Kournal/Kournal
  * License:         GPLv2 or later
  */
 
-#include "ui/KournalWindow.hpp"
-#include "Static.hpp"
+#pragma once
 
-#include <QApplication>
+#include <QAbstractButton>
+#include <QDialog>
 
-int main(int argc, char *argv[])
-{
-    QApplication a(argc, argv);
-    
-    KournalWindow w;
-    Static::setParent(&w);
-    w.show();
-
-    return a.exec();
+namespace Ui {
+class SettingsDialog;
 }
+
+class SettingsDialog : public QDialog
+{
+    Q_OBJECT
+
+public:
+    explicit SettingsDialog(QWidget *parent = 0);
+    ~SettingsDialog();
+
+protected:
+    void saveSettings();
+
+private slots:
+    void on_buttons_clicked(QAbstractButton *button);
+
+private:
+    Ui::SettingsDialog *ui;
+};

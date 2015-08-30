@@ -1,13 +1,21 @@
 #include "KournalWindow.hpp"
 #include "ui_KournalWindow.h"
 
+#include "SettingsDialog.hpp"
+#include "Static.hpp"
+
 #include <QFileDialog>
+#include <QMessageBox>
 #include <QStandardPaths>
 
-MainWindow::MainWindow(QWidget *parent) :
+KournalWindow::KournalWindow(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::MainWindow)
+    ui(new Ui::KournalWindow)
 {
+    // Settings setup
+    Static::setSettings(new SettingsHandler(this, true));
+
+    // UI setup
     ui->setupUi(this);
 
     connect(ui->actionClose, SIGNAL(triggered()), this, SLOT(close()));
@@ -16,12 +24,12 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->fileTabs->addTab(welcome, "Welcome");  // TODO – add icon
 }
 
-MainWindow::~MainWindow()
+KournalWindow::~KournalWindow()
 {
     delete ui;
 }
 
-void MainWindow::on_fileTabs_tabCloseRequested(int index)
+void KournalWindow::on_fileTabs_tabCloseRequested(int index)
 {
     if (dynamic_cast<WelcomeWidget *>(ui->fileTabs->widget(index)))
     {
@@ -29,9 +37,22 @@ void MainWindow::on_fileTabs_tabCloseRequested(int index)
     }
 }
 
-void MainWindow::on_actionOpenJournal_triggered()
+void KournalWindow::on_actionOpenJournal_triggered()
 {
     QString fileName = QFileDialog::getOpenFileName(this, "Open Journal",
         QStandardPaths::standardLocations(QStandardPaths::HomeLocation).first(),
         "Kournal Binary Journal files (*.kbj)");
+
+    // TODO
+}
+
+void KournalWindow::on_actionOptions_triggered()
+{
+    SettingsDialog settings;
+    settings.exec();
+}
+
+void KournalWindow::on_actionAboutQt_triggered()
+{
+    QMessageBox::aboutQt(this, "About Qt");
 }

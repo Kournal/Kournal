@@ -1,5 +1,5 @@
 /*
- * WelcomeWidget.hpp – welcome screen widget
+ * Static.hpp – static Kournal definitions class
  *
  * Copyright (C) 2015  Kournal team
  * This file is part of Kournal.
@@ -21,41 +21,21 @@
 
 #pragma once
 
-#include "WelcomeWidget.hpp"
-
 #include "model/settings/SettingsHandler.hpp"
+#include "ui/KournalWindow.hpp"
 
-#include <QMainWindow>
-
-namespace Ui {
-class KournalWindow;
-}
-
-class KournalWindow : public QMainWindow
+class Static
 {
-    Q_OBJECT
-
 public:
-    explicit KournalWindow(QWidget *parent = 0);
-    ~KournalWindow();
+    static void setParent(KournalWindow *parent);
 
-private slots:
-    void on_fileTabs_tabCloseRequested(int index);
+    static SettingsHandler *getSettings();
+    static void setSettings(SettingsHandler *settings);
 
-    // Menu actions
+protected:
+    static SettingsHandler *settings;
 
-    // File
-    void on_actionOpenJournal_triggered();
-
-    // Tools
-    void on_actionOptions_triggered();
-
-    // About
-    void on_actionAboutQt_triggered();
-
-private:
-    Ui::KournalWindow *ui;
-
-    WelcomeWidget *welcome;
+    // We're sure it's set by main
+    static KournalWindow *parent;
 
 };

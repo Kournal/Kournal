@@ -36,10 +36,24 @@ find_package (Qt5 REQUIRED Widgets Core Gui)
 find_package (CapnProto REQUIRED)
 add_definitions(${CAPNP_DEFINITIONS})
 
+# yaml-cpp
+find_package (YamlCpp REQUIRED)
+
 # Includes
 include_directories (
     "${PROJECT_SOURCE_DIR}/src"
+    "${PROJECT_BINARY_DIR}/src"
     ${CAPNP_INCLUDE_DIRS}
+    ${YAMLCPP_INCLUDE_DIR}
+)
+
+# Libraries
+set (kournal_LIBRARIES
+    Qt5::Core
+    Qt5::Gui
+    Qt5::Widgets
+    ${CAPNP_LIBRARIES}
+    ${YAMLCPP_LIBRARY}
 )
 
 
@@ -56,7 +70,7 @@ include (GitRepo)
 
 ## Sources ##
 
-add_subdirectory(src/model)
+add_subdirectory(src/model/document)
 capnp_generate_cpp(kournal_CAPNP_SOURCES kournal_CAPNP_HEADERS ${kournal_CAPNPFILES})
 
 add_subdirectory(src)
@@ -71,11 +85,6 @@ add_executable (kournal
     ${kournal_CAPNP_HEADERS}
 )
 
-target_link_libraries (kournal
-    Qt5::Core
-    Qt5::Gui
-    Qt5::Widgets
-    ${CAPNP_LIBRARIES}
-)
+target_link_libraries (kournal ${kournal_LIBRARIES})
 
 install (TARGETS kournal RUNTIME DESTINATION bin)
