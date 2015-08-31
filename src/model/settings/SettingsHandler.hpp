@@ -21,9 +21,13 @@
 
 #pragma once
 
-#include <QObject>
-#include <QString>
 #include <QMutex>
+#include <QObject>
+#include <QFile>
+#include <QString>
+#include <QSharedPointer>
+
+#include <yaml-cpp/node/node.h>
 
 class SettingsHandler : public QObject
 {
@@ -32,8 +36,9 @@ class SettingsHandler : public QObject
 public:
     explicit SettingsHandler(QObject* parent = 0, bool load = true);
 
-    void loadConfig();
-    void saveConfig();
+    void loadSettings();
+    void saveSettings();
+    void emitDefaultSettings();
 
     bool isModified();
 
@@ -43,6 +48,9 @@ public:
 private:
     QMutex mutex;
     bool modified = false;
+
+    QSharedPointer<QFile> settingsFile;
+    QSharedPointer<YAML::Node> settingsNode;
 
     QString general_userinfo_name;
 

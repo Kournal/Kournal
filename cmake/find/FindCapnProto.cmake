@@ -74,8 +74,8 @@ function(CAPNP_GENERATE_CPP SOURCES HEADERS)
 
   if (NOT DEFINED CAPNPC_OUTPUT_DIR)
     set (CAPNPC_OUTPUT_DIR "${CMAKE_CURRENT_BINARY_DIR}")
-  endif()  
-  
+  endif()
+
   # Prepend a ':' to get the format for the '-o' flag right
   set(output_dir ":${CAPNPC_OUTPUT_DIR}")
 
@@ -105,7 +105,7 @@ function(CAPNP_GENERATE_CPP SOURCES HEADERS)
     add_custom_command(
       OUTPUT "${output_base}.c++" "${output_base}.h"
       COMMAND "${CAPNP_EXECUTABLE}"
-      ARGS compile 
+      ARGS compile
           -o ${CAPNPC_CXX_EXECUTABLE}${output_dir}
           --src-prefix ${CAPNPC_SRC_PREFIX}
           ${include_path}

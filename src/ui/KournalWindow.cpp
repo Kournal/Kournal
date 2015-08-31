@@ -21,7 +21,7 @@ KournalWindow::KournalWindow(QWidget *parent) :
     connect(ui->actionClose, SIGNAL(triggered()), this, SLOT(close()));
 
     welcome = new WelcomeWidget(this);
-    ui->fileTabs->addTab(welcome, "Welcome");  // TODO – add icon
+    ui->fileTabs->addTab(welcome, QStringLiteral("Welcome"));  // TODO – add icon
 }
 
 KournalWindow::~KournalWindow()
@@ -39,9 +39,9 @@ void KournalWindow::on_fileTabs_tabCloseRequested(int index)
 
 void KournalWindow::on_actionOpenJournal_triggered()
 {
-    QString fileName = QFileDialog::getOpenFileName(this, "Open Journal",
+    QString fileName = QFileDialog::getOpenFileName(this, QStringLiteral("Open Journal"),
         QStandardPaths::standardLocations(QStandardPaths::HomeLocation).first(),
-        "Kournal Binary Journal files (*.kbj)");
+        QStringLiteral("Kournal Binary Journal files (*.kbj)"));
 
     // TODO
 }
@@ -54,5 +54,5 @@ void KournalWindow::on_actionOptions_triggered()
 
 void KournalWindow::on_actionAboutQt_triggered()
 {
-    QMessageBox::aboutQt(this, "About Qt");
+    QMessageBox::aboutQt(this, QStringLiteral("About Qt"));
 }

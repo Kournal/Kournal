@@ -37,7 +37,7 @@ public:
     ~SettingsDialog();
 
 protected:
-    void saveSettings();
+    void applySettings();
 
 private slots:
     void on_buttons_clicked(QAbstractButton *button);

@@ -42,7 +42,7 @@ SettingsDialog::~SettingsDialog()
     delete ui;
 }
 
-void SettingsDialog::saveSettings()
+void SettingsDialog::applySettings()
 {
     // I could have used there some fancy queuing of changes, but for this amount of data it's not worth it
     S->setUsername(ui->usernameE->text());
@@ -53,16 +53,20 @@ void SettingsDialog::on_buttons_clicked(QAbstractButton *button)
     switch (ui->buttons->buttonRole(button))
     {
     case QDialogButtonBox::AcceptRole:
-        saveSettings();
+        applySettings();
+        S->saveSettings();
         close();
         break;
 
     case QDialogButtonBox::ApplyRole:
-        saveSettings();
+        applySettings();
         break;
 
     case QDialogButtonBox::DestructiveRole:
         close();
+        break;
+
+    default:
         break;
     }
 }
