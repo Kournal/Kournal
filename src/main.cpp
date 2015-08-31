@@ -25,25 +25,9 @@
 
 #include <QApplication>
 
-#include <KF5/KCoreAddons/KAboutData>
-
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-
-    KAboutData aboutData(QStringLiteral(PROJECT_NAME),
-                         QStringLiteral(PROJECT_STRING),
-                         QStringLiteral(PROJECT_VERSION),
-                         QStringLiteral("TODO desc"),
-                         KAboutLicense::GPL_V2,
-                         QStringLiteral("Copyright (C) 2015 Kournal team"), QString(),
-                         QStringLiteral(PROJECT_URL),
-                         QStringLiteral("marek@pikula.co"));
-
-    aboutData.addAuthor(QStringLiteral("Marek Pikuła"), QStringLiteral("App developement"),
-                        QStringLiteral("marek@pikula.co"));
-
-    KAboutData::setApplicationData(aboutData);
     
     KournalWindow w;
     Static::setParent(&w);

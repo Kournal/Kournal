@@ -11,15 +11,11 @@ set (PROJECT_URL "https://github.com/Kournal/Kournal")
 ## CMake setup ##
 
 # Additional CMake includes
-find_package (ECM 1.0.0 REQUIRED NO_MODULE) # For KF5
 set (CMAKE_MODULE_PATH
-    "${PROJECT_SOURCE_DIR}/cmake/include" "${PROJECT_SOURCE_DIR}/cmake/find"
-    ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR}
+    "${PROJECT_SOURCE_DIR}/cmake/include"
+    "${PROJECT_SOURCE_DIR}/cmake/find"
 )
 
-include (KDEInstallDirs)
-include (KDECMakeSettings)
-include (KDECompilerSettings)
 include (FeatureSummary)
 
 # Find includes in corresponding build directories
@@ -35,11 +31,8 @@ set (CMAKE_AUTORCC ON)
 ## Libraries ##
 
 # Qt5
-find_package (Qt5 REQUIRED Widgets Core Gui)
+find_package (Qt5 REQUIRED Core Gui Widgets)
 add_definitions (-DQT_NO_CAST_FROM_ASCII -DQT_NO_CAST_TO_ASCII)
-
-# KF5
-find_package (KF5 REQUIRED COMPONENTS CoreAddons I18n)
 
 # Cap'n'proto
 find_package (CapnProto)    # Should be REQUIRED, but unexpectedly it's not found despite it's working
@@ -60,9 +53,8 @@ include_directories (
 # Libraries
 set (kournal_LIBRARIES
     Qt5::Core
+    Qt5::Gui
     Qt5::Widgets
-    KF5::CoreAddons
-    KF5::I18n
     ${CAPNP_LIBRARIES}
     ${YAMLCPP_LIBRARY}
 )
