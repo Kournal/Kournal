@@ -8,8 +8,8 @@ rather than GTK+. For now it's under heavy development, so it shouldn't be used 
 If you'd like to contribute in making Kournal the best tablet journal software in the world you can contact
 me by email: marek@pikula.co.
 
-For now there's no possibility to translate, as it'd be pointless in current state, but you can write to me,
-so I can write back when i18n will be available.
+Translations are implemented, but strings will be surely changed a lot of times, so there's no point in
+translating at the moment.
 
 ## Building
 

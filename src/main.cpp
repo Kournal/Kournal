@@ -22,13 +22,27 @@
 #include "ui/KournalWindow.hpp"
 #include "Static.hpp"
 #include "config.hpp"
+#include "config-i18n.hpp"
 
 #include <QApplication>
+#include <QLocale>
+#include <QLibraryInfo>
+#include <QTranslator>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     
+    QTranslator qtTranslator;
+    qtTranslator.load(QStringLiteral("qt_") + QLocale::system().name(),
+                      QLibraryInfo::location(QLibraryInfo::TranslationsPath));
+    a.installTranslator(&qtTranslator);
+
+    QTranslator kournalTranslator;
+    kournalTranslator.load(QLocale::system().name(),
+                           QStringLiteral(TR_SEARCH_PATH));
+    a.installTranslator(&kournalTranslator);
+
     KournalWindow w;
     Static::setParent(&w);
     w.show();

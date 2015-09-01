@@ -27,6 +27,11 @@
 #define PROJECT_NAME "@PROJECT_NAME@"
 
 /**
+ * Upper case project name
+ */
+#define PROJECT_NAME_UC "@PROJECT_NAME_UC@"
+
+/**
  * Project version number
  */
 #define PROJECT_VERSION "@PROJECT_VERSION@"

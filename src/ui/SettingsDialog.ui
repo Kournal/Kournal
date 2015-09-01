@@ -13,9 +13,6 @@
   <property name="windowTitle">
    <string>Settings</string>
   </property>
-  <property name="locale">
-   <locale language="English" country="UnitedStates"/>
-  </property>
   <layout class="QVBoxLayout" name="settingsDialogL">
    <item>
     <widget class="QTabWidget" name="tabs">

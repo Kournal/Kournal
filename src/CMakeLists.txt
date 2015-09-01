@@ -1,13 +1,12 @@
 ## Source files ##
 
-# These dirs are xournalpp only so it's safe to add then recursively
 file (GLOB_RECURSE kournal_SOURCES *.cpp)
 set (kournal_SOURCES ${kournal_SOURCES} PARENT_SCOPE)
 
 
 ## Additional options ##
 
-option (CMAKE_LIST_SOURCES "Lists generated sources list" OFF)
+option (CMAKE_LIST_SOURCES "List generated sources list" OFF)
 if (CMAKE_LIST_SOURCES)
     message ("Sources list: ${kournal_SOURCES}")
 endif ()

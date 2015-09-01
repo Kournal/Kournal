@@ -5,7 +5,7 @@ SettingsHandler *Static::settings;
 
 void Static::setParent(KournalWindow *parent)
 {
-    // It's const
+    // It should be constant
     if (!Static::parent)
     {
         Static::parent = parent;

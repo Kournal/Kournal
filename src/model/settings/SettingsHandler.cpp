@@ -12,8 +12,37 @@
 #include <yaml-cpp/yaml.h>
 
 #include <fstream>
+#include <string>
 
 #define S (*settingsNode)
+
+// YAML type convertion overloads
+
+YAML::Emitter& operator << (YAML::Emitter& out, const QString& v) {
+    out << v.toStdString();
+    return out;
+}
+
+namespace YAML {
+template<>
+struct convert<QString>
+{
+    static Node encode(const QString& rhs)
+    {
+        return Node(rhs.toStdString());
+    }
+
+    static bool decode(const Node& node, QString& rhs)
+    {
+        if(!node.IsScalar())
+        {
+            return false;
+        }
+        rhs = QString::fromStdString(node.Scalar());
+        return true;
+    }
+};
+}
 
 // TODO: handle YAML exceptions
 
@@ -77,7 +106,7 @@ void SettingsHandler::emitDefaultSettings()
                 << YAML::Key << "userInfo"
                 << YAML::Value << YAML::BeginMap
                     << YAML::Key << "userName"
-                    << YAML::Value << "Marek"
+                    << YAML::Value << tr("User", "Default user name in settings")
                 << YAML::EndMap
             << YAML::EndMap
         << YAML::EndMap;
@@ -104,28 +133,4 @@ void SettingsHandler::setUsername(const QString& username)
     general_userinfo_name = username;
     S["general"]["userInfo"]["userName"] = username;
     mutex.unlock();
-}
-
-
-#include <string>
-
-namespace YAML {
-template<>
-struct convert<QString>
-{
-    static Node encode(const QString& rhs)
-    {
-        return Node(rhs.toStdString());
-    }
-
-    static bool decode(const Node& node, QString& rhs)
-    {
-        if(!node.IsScalar())
-        {
-            return false;
-        }
-        rhs = QString::fromStdString(node.Scalar());
-        return true;
-    }
-};
 }
