@@ -21,12 +21,12 @@
 #
 
 using import "../Common.capnp".BasicMetadata;
-using import "../tab/TabCommon.capnp".TabView;
+using import "../document/DocumentCommon.capnp".DocumentView;
 
 struct Bookmark @0xd91b55583e033c9e {
     # Bookmark of given view
 
     id @0 :UInt32;              # Unique ID of bookmark
     metadata @1 :BasicMetadata; # Bookmark metadata (thumbnail of view)
-    view @2 :TabView;           # Bookmarked view
+    view @2 :DocumentView;      # Bookmarked view
 }

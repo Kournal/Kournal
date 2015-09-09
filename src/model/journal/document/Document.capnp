@@ -21,29 +21,29 @@
 #
 
 using Common = import "../Common.capnp";
-using import "TabCommon.capnp".TabView;
+using import "DocumentCommon.capnp".DocumentView;
 using import "../page/Page.capnp".Page;
 using import "../layer/Layer.capnp".Layer;
-using Bookmark = import "../bookmark/Bookmark.capnp";
+using import "../bookmark/Bookmark.capnp".Bookmark;
 
-struct Tab @0x85132b574bd1c03b {
+struct Document @0x85132b574bd1c03b {
     # Defines document tab
 
-    metadata @0 :Common.BasicMetadata;      # Tab metadata (thumbnail of `lastView` or defined by user)
-    color @1 :UInt32;                       # Tab color in RGB (no alpha channel!)
+    metadata @0 :Common.BasicMetadata;      # Document metadata (thumbnail of `lastView` or defined by user)
+    color @1 :UInt32;                       # Document tab color in RGB (no alpha channel!)
     additional @2 :Text;                    # Additional variable JSON data
-    type @3 :TabType;
+    pagination @3 :PaginationType;
 
-    lastView @4 :TabView;                   # Last view of tab
+    lastView @4 :DocumentView;              # Last view of document
 
     pageIndex @5 :List(Common.PageCoords);  # List of page coordinates – no need to get entire document to see only part
     pages @6 :List(Page);                   # List of pages – index corresponding to pageIndex
 
     layers @7 :List(Layer);
-    bookmarks @8 :List(Bookmark.Bookmark);
+    bookmarks @8 :List(Bookmark);
 }
 
-enum TabType @0xd15a9c30c8fe33dc {
+enum PaginationType @0xd15a9c30c8fe33dc {
     # Type of tab
 
     page @0;        # Classic paginated document

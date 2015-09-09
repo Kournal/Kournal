@@ -26,7 +26,7 @@
 #             Kournal functions.
 
 using import "Common.capnp".BasicMetadata;
-using import "tab/DocumentTab.capnp".Tab;
+using import "document/Document.capnp".Document;
 using import "resource/Resource.capnp".Resource;
 
 struct Journal @0x9707008195388520 {
@@ -36,8 +36,8 @@ struct Journal @0x9707008195388520 {
     author @1 :Text;                    # Author of document
     additional @2 :Text;                # Additional variable JSON data
 
-    lastTab @3 :UInt32;                 # Last used tab
-    tabs @4 :List(Tab);                 # List of document tabs
+    lastDocument @3 :UInt32;            # Last used document
+    documents @4 :List(Document);       # List of documents – represented as tabs
 
     resourceIndex @5 :List(UInt32);     # List with resource ids – no need to get all resources to see only one
     resources @6 :List(Resource);       # List of resource objects – index corresponding to pageIndex

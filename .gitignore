@@ -8,3 +8,6 @@
 # Qt Creator
 CMakeLists.txt.user
 *.autosave
+
+# Misc
+.directory # used by Dolphin

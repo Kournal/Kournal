@@ -22,7 +22,7 @@
 
 using Common = import "../Common.capnp";
 
-struct TabView @0xced2c65c87033d2f {
+struct DocumentView @0xced2c65c87033d2f {
     # State of tab – position and zoom of middle point of view
 
     page @0 :Common.PageCoords;     # Coordinates/position of page
