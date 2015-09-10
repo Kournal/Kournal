@@ -41,7 +41,7 @@ find_package (Qt5 REQUIRED Core Gui LinguistTools Widgets)
 add_definitions (-DQT_NO_CAST_FROM_ASCII -DQT_NO_CAST_TO_ASCII)
 
 # Cap'n'proto
-find_package (CapnProto)    # Should be REQUIRED, but unexpectedly it's not found despite it's working
+find_package (Capnp REQUIRED)
 add_definitions (${CAPNP_DEFINITIONS})
 
 # yaml-cpp
@@ -89,9 +89,8 @@ add_subdirectory (src)
 
 ## Translations ##
 
-file (GLOB_RECURSE kournal_TSSOURCES "i18n/*.ts")
-qt5_add_translation(kournal_QM ${kournal_TSSOURCES})
-#add_subdirectory (i18n) # For update_ts target NYI
+#add_subdirectory (i18n)
+#qt5_add_translation(kournal_QM ${kournal_TSSOURCES})
 
 if (${CMAKE_BUILD_TYPE} STREQUAL "Debug")
     set (TR_SEARCH_PATH "${PROJECT_BINARY_DIR}")
