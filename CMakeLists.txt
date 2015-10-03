@@ -29,7 +29,7 @@ set (CMAKE_AUTORCC ON)
 if(NOT CMAKE_BUILD_TYPE)
     message(STATUS "Setting build type to 'Debug' as none was specified.")
     set(CMAKE_BUILD_TYPE Debug CACHE STRING "Choose the type of build." FORCE)
-    # Set the possible values of build type for cmake-gui
+    # Set the possible values of build type
     set_property(CACHE CMAKE_BUILD_TYPE PROPERTY STRINGS "Debug" "Release")
 endif()
 
@@ -89,8 +89,12 @@ add_subdirectory (src)
 
 ## Translations ##
 
-#add_subdirectory (i18n)
-#qt5_add_translation(kournal_QM ${kournal_TSSOURCES})
+add_subdirectory (i18n)
+qt5_add_translation(kournal_QM ${kournal_TSSOURCES})
+
+configure_file ("src/config-i18n.hpp.in" "src/config-i18n.hpp" @ONLY)
+
+## Default build type ##
 
 if (${CMAKE_BUILD_TYPE} STREQUAL "Debug")
     set (TR_SEARCH_PATH "${PROJECT_BINARY_DIR}")
@@ -98,7 +102,6 @@ else ()
     set (TR_SEARCH_PATH "${CMAKE_INSTALL_PREFIX}/share/${PROJECT_NAME}/i18n")
 endif ()
 
-configure_file ("src/config-i18n.hpp.in" "src/config-i18n.hpp" @ONLY)
 
 ## Final ##
 

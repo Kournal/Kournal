@@ -1,0 +1,41 @@
+#!/usr/bin/env python
+#
+# Automatically update Kournal's translation script
+#
+# Executed without parameters updates all existing translations
+#
+# You can also update or create new translations by passing target language (in format pl_PL)
+# and you can pass additional parameters to lupdate-qt5
+
+import os
+import sys
+import glob
+
+os.chdir("@PROJECT_SOURCE_DIR@") # paths in sources.txt are relative to PROJECT_SOURCE_DIR
+lupdate_bin = "@Qt5lupdate_location@"
+
+i = 0
+hypen = 0
+langs = []
+passArgs = []
+for arg in sys.argv:
+    if i != 0:          # Ignore script name
+        if arg == "-":
+            hypen = 1
+        elif hypen:
+            passArgs.append(arg)
+        else:
+            langs.append(arg)
+    i+=1
+
+passArgsStr = ""
+for arg in passArgs:
+    passArgsStr += " " + arg
+
+if len(langs) == 0:
+    for ts in glob.glob("i18n/*.ts"):
+        os.system(lupdate_bin + ' @i18n/sources.txt -ts "' + ts
+                  + '" -target-language ' + ts.replace(".ts", "").replace("i18n/", "") + passArgsStr)
+else:
+    for lang in langs:
+        os.system(lupdate_bin + ' @i18n/sources.txt -ts "i18n/' + lang + '.ts"' + passArgsStr)

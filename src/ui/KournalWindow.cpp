@@ -21,7 +21,7 @@ KournalWindow::KournalWindow(QWidget *parent) :
     connect(ui->actionClose, SIGNAL(triggered()), this, SLOT(close()));
 
     welcome = new WelcomeWidget(this);
-    ui->fileTabs->addTab(welcome, tr("Welcome"));  // TODO – add icon
+    ui->fileTabs->addTab(welcome, welcome->windowTitle());  // TODO – add icon
 }
 
 KournalWindow::~KournalWindow()
