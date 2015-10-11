@@ -15,7 +15,7 @@
  *
  * File author:     Marek Pikuła
  * Creation date:   26.08.2015
- * Project website: https://github.com/Kournal/Kournal
+ * Project website: https://kournal.github.io/
  * License:         GPLv2 or later
  */
 
@@ -33,6 +33,7 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     
+    // Translations
     QTranslator qtTranslator;
     qtTranslator.load(QStringLiteral("qt_") + QLocale::system().name(),
                       QLibraryInfo::location(QLibraryInfo::TranslationsPath));
@@ -42,6 +43,13 @@ int main(int argc, char *argv[])
     kournalTranslator.load(QLocale::system().name(),
                            QStringLiteral(TR_SEARCH_PATH));
     a.installTranslator(&kournalTranslator);
+    
+    // Application info
+    a.setApplicationName(QStringLiteral(PROJECT_NAME_UC));
+    a.setApplicationDisplayName(QStringLiteral(PROJECT_NAME_UC));
+    a.setApplicationVersion(QStringLiteral(PROJECT_VERSION));
+    a.setOrganizationName(QStringLiteral(PROJECT_NAME_UC));
+    a.setOrganizationDomain(QStringLiteral(PROJECT_URL));
 
     KournalWindow w;
     Static::setParent(&w);

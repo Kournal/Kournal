@@ -6,7 +6,7 @@ project ("kournal" CXX C)
 set (PROJECT_NAME_UC "Kournal")
 set (PROJECT_VERSION "0.a")
 set (PROJECT_STRING "${PROJECT_NAME} ${PROJECT_VERSION}")
-set (PROJECT_URL "https://github.com/Kournal/Kournal")
+set (PROJECT_URL "https://kournal.github.io")
 
 
 ## CMake setup ##

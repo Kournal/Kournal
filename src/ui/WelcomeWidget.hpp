@@ -15,7 +15,7 @@
  *
  * File author:     Marek Pikuła
  * Creation date:   26.08.2015
- * Project website: https://github.com/Kournal/Kournal
+ * Project website: https://kournal.github.io/
  * License:         GPLv2 or later
  */
 

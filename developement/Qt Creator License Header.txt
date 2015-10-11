@@ -15,6 +15,6 @@
  *
  * File author:     %USER%
  * Creation date:   %DAY%.%MONTH%.%YEAR%
- * Project website: https://github.com/Kournal/Kournal
+ * Project website: https://kournal.github.io/
  * License:         GPLv2 or later
  */

@@ -1,5 +1,5 @@
 /*
- * WelcomeWidget.hpp – welcome screen widget
+ * KournalWindow.hpp – main Kournal window
  *
  * Copyright (C) 2015  Kournal team
  * This file is part of Kournal.
@@ -7,15 +7,15 @@
  * Kournal is free software: you can redistribute it and/or modify  it under the terms of the GNU General Public License
  * as published by the Free Software Foundation, either version 2 of the License, or (at your option) any later version.
  *
- * Foobar is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
- * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+ * Kournal is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied
+ * warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License along with Kournal.
  * If not, see <http://www.gnu.org/licenses/>.
  *
  * File author:     Marek Pikuła
  * Creation date:   26.08.2015
- * Project website: https://github.com/Kournal/Kournal
+ * Project website: https://kournal.github.io/
  * License:         GPLv2 or later
  */
 
@@ -26,6 +26,7 @@
 #include "model/settings/SettingsHandler.hpp"
 
 #include <QMainWindow>
+#include <QSettings>
 
 namespace Ui {
 class KournalWindow;
@@ -56,6 +57,7 @@ private slots:
 private:
     Ui::KournalWindow *ui;
 
+    QSettings localSettings;
     WelcomeWidget *welcome;
 
 };

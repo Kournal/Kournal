@@ -15,19 +15,44 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <widget class="QLabel" name="label">
-     <property name="text">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:xx-large; font-weight:600;&quot;&gt;Hi!&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Nice to see you there.&lt;/p&gt;&lt;p&gt;If you wish so, you can choose &lt;span style=&quot; font-weight:600;&quot;&gt;New Journal&lt;/span&gt;, or you can just &lt;span style=&quot; font-weight:600;&quot;&gt;Open &lt;/span&gt;existing.&lt;/p&gt;&lt;p&gt;As you have probably noticed it's very poor there right now, but fear not – it's gonna be much, much better (just look at this potential in &lt;span style=&quot; font-style:italic;&quot;&gt;capnp&lt;/span&gt; schemas!)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-     </property>
-     <property name="scaledContents">
+    <widget class="QScrollArea" name="scrollArea">
+     <property name="autoFillBackground">
       <bool>false</bool>
      </property>
-     <property name="alignment">
-      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+     <property name="frameShape">
+      <enum>QFrame::NoFrame</enum>
      </property>
-     <property name="wordWrap">
+     <property name="widgetResizable">
       <bool>true</bool>
      </property>
+     <widget class="QWidget" name="scrollAreaWidgetContents">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>382</width>
+        <height>282</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QLabel" name="label">
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:xx-large; font-weight:600;&quot;&gt;Hi!&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Nice to see you there.&lt;/p&gt;&lt;p&gt;If you wish so, you can choose &lt;span style=&quot; font-weight:600;&quot;&gt;New Journal&lt;/span&gt;, or you can just &lt;span style=&quot; font-weight:600;&quot;&gt;Open &lt;/span&gt;existing.&lt;/p&gt;&lt;p&gt;As you have probably noticed it's very poor there right now, but fear not – it's gonna be much, much better (just look at this potential in &lt;span style=&quot; font-style:italic;&quot;&gt;capnp&lt;/span&gt; schemas!)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+         <property name="scaledContents">
+          <bool>false</bool>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+         </property>
+         <property name="wordWrap">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
     </widget>
    </item>
   </layout>

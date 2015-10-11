@@ -18,6 +18,11 @@ KournalWindow::KournalWindow(QWidget *parent) :
     // UI setup
     ui->setupUi(this);
 
+    localSettings.beginGroup(QStringLiteral("KournalWindow"));
+    restoreGeometry(localSettings.value(QStringLiteral("geometry")).toByteArray());
+    restoreState(localSettings.value(QStringLiteral("state")).toByteArray());
+    localSettings.endGroup();
+
     connect(ui->actionClose, SIGNAL(triggered()), this, SLOT(close()));
 
     welcome = new WelcomeWidget(this);
@@ -26,6 +31,12 @@ KournalWindow::KournalWindow(QWidget *parent) :
 
 KournalWindow::~KournalWindow()
 {
+    localSettings.beginGroup(QStringLiteral("KournalWindow"));
+    localSettings.setValue(QStringLiteral("geometry"), saveGeometry());
+    localSettings.setValue(QStringLiteral("state"), saveState());
+    localSettings.endGroup();
+    localSettings.sync();
+
     delete ui;
 }
 

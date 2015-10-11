@@ -1,5 +1,5 @@
 /*
- * SettingsDialog.hpp – [file description]
+ * SettingsDialog.hpp – main configuration dialog
  *
  * Copyright (C) 2015  Kournal team
  * This file is part of Kournal.
@@ -13,9 +13,9 @@
  * You should have received a copy of the GNU General Public License along with Kournal.
  * If not, see <http://www.gnu.org/licenses/>.
  *
- * File author:     marek
- * Creation date:   27.8.2015
- * Project website: https://github.com/Kournal/Kournal
+ * File author:     Marek Pikuła
+ * Creation date:   27.08.2015
+ * Project website: https://kournal.github.io/
  * License:         GPLv2 or later
  */
 
