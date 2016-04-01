@@ -18,7 +18,7 @@ translating at the moment.
 Kournal uses CMake as its build engine. You can configure and build it this way:
 
 ```bash
-git clone https://github.com/Kournal/Kournal.github
+git clone https://github.com/Kournal/Kournal.git
 cd Kournal
 mkdir build
 cd build
